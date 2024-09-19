@@ -1,5 +1,6 @@
 import { Product } from "../utils/Types";
 import { ProductType } from "../utils/ProductType";
+import { useNavigate } from "react-router-dom";
 
 const shopping_cart: Product[] = [
   {
@@ -25,9 +26,7 @@ const shopping_cart: Product[] = [
 ];
 
 const ShoppingCart = () => {
-  const handleCheckout = () => {
-    alert("Checkout is not implemented yet.");
-  };
+  const navigate = useNavigate();
 
   const getTotalPrice = () => {
     return shopping_cart
@@ -96,7 +95,10 @@ const ShoppingCart = () => {
             className="grey lighten-1"
             style={{ margin: "3.6rem 0 1.6rem" }}
           ></hr>
-          <button className="btn-large right" onClick={handleCheckout}>
+          <button
+            className="btn-large right"
+            onClick={() => navigate("/checkout")}
+          >
             Checkout
           </button>
           <h5
